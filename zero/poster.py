@@ -17,4 +17,8 @@ class Poster(object):
 class ShiborItemPoster(Poster):
     def post(self):
         print(self._item.convert())
+
+class InvestorSituationItemPoster(Poster):
+    def post(self):
+        print(self._item.convert())
     
