@@ -17,10 +17,10 @@ class Poster(object):
 
 
 class ShiborItemPoster(Poster):
-    server_url="http://127.0.0.1:8000/component/"
+    #server_url="http://127.0.0.1:8000/component/"
     api="market/add/shiborrate/"
 
 class InvestorSituationItemPoster(Poster):
-    server_url="http://127.0.0.1:8000/component/"
+    #server_url="http://127.0.0.1:8000/component/"
     api="market/add/investorsituation/"
     
