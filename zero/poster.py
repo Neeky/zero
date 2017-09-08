@@ -1,3 +1,4 @@
+import requests
 
 class Poster(object):
     server_url="http://www.financedatas.com/component/"
@@ -11,14 +12,15 @@ class Poster(object):
         return self.server_url+self.api
 
     def post(self):
-        raise NotImplemented()
+        response=requests.post(self.http_api,data=self._item.convert())
+        print(response.text)
 
 
 class ShiborItemPoster(Poster):
-    def post(self):
-        print(self._item.convert())
+    server_url="http://127.0.0.1:8000/component/"
+    api="market/add/shiborrate/"
 
 class InvestorSituationItemPoster(Poster):
-    def post(self):
-        print(self._item.convert())
+    server_url="http://127.0.0.1:8000/component/"
+    api="market/add/investorsituation/"
     

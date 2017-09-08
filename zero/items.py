@@ -45,12 +45,17 @@ class InvestorSituationItem(ZeroItem):
     new_non_natural_person  =scrapy.Field()
     final_natural_person    =scrapy.Field()
     final_non_natural_person=scrapy.Field()
+    unit                    =scrapy.Field()
 
     def convert(self):
         dc=dict(self)
         #定义要做数据类型转换的k值，把str 转换成float
+        res={}
         ks=['new_investor','final_investor','new_natural_person','new_non_natural_person',
             'final_natural_person','final_non_natural_person']
-        for k in ks:
-            dc[k]=float(dc[k].replace(',',''))      
-        return dc
+            
+        if '万' in dc['unit']:
+            for k in ks:
+                res[k]=float(dc[k].replace(',','')) *10000
+            res['push_date']=dc['push_date']
+        return res
