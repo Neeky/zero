@@ -1,4 +1,5 @@
 import requests
+import datetime
 
 class Poster(object):
     server_url="http://www.financedatas.com/component/"
@@ -23,4 +24,23 @@ class ShiborItemPoster(Poster):
 class InvestorSituationItemPoster(Poster):
     #server_url="http://127.0.0.1:8000/component/"
     api="market/add/investorsituation/"
+
+class indexCollectorItemPoster(Poster):
+    api="market/add/update/stockindex/"
+
+    def post(self):
+        data=self._item.convert()
+        if datetime.datetime.now().hour >=17:
+            response=requests.post(self.http_api,data=data)
+            print('-'*64)
+            print(response)
+            print('-'*64)
+            pass
+            #上传数据到服务器
+        else:
+            #还没有收盘，数据不上传
+            print('-'*64)
+            print(data)
+            print('-'*64)
+            
     

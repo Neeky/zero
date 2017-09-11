@@ -60,6 +60,7 @@ class FileLoader(object):
             files=os.listdir(source)
             abs_file_paths=[path.join(source,file_name) for file_name in files]
             for file_path in abs_file_paths:
+                print(file_path)
                 reader=csv.reader(open(file_path,'r',encoding=encoding))
                 lines=[line for line in reader][1:]
                 yield cls(lines)

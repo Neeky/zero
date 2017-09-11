@@ -6,6 +6,8 @@
 # http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+import datetime
+from zero.utils import datetime_to_str
 
 
 class ZeroItem(scrapy.Item):
@@ -58,4 +60,29 @@ class InvestorSituationItem(ZeroItem):
             for k in ks:
                 res[k]=float(dc[k].replace(',','')) *10000
             res['push_date']=dc['push_date']
+        return res
+
+    pass
+
+
+class indexCollectorItem(ZeroItem):
+    push_date               =scrapy.Field()
+    index_name              =scrapy.Field()
+    open_value              =scrapy.Field()
+    close_value             =scrapy.Field()
+    higest_value            =scrapy.Field()
+    lowest_value            =scrapy.Field()
+    fluctuation             =scrapy.Field()
+    total_market_value      =scrapy.Field()
+    transaction_amount      =scrapy.Field()
+    circulation_market_value=scrapy.Field()
+
+    def convert(self):
+        data=dict(self)
+        res={}
+        for k in data:
+            if k not in ['push_date','index_name']:
+                res[k]=float(data[k]) if len(data[k]) != 0 else 0
+        res['push_date']=datetime_to_str(data['push_date'])
+        res['index_name']=data['index_name']
         return res

@@ -10,7 +10,8 @@ from   zero        import items
 
 post_router={
     items.ShiborItem:poster.ShiborItemPoster,
-    items.InvestorSituationItem:poster.InvestorSituationItemPoster
+    items.InvestorSituationItem:poster.InvestorSituationItemPoster,
+    items.indexCollectorItem:poster.indexCollectorItemPoster,
 }
 
 
