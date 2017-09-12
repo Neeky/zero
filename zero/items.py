@@ -65,7 +65,7 @@ class InvestorSituationItem(ZeroItem):
     pass
 
 
-class indexCollectorItem(ZeroItem):
+class IndexCollectorItem(ZeroItem):
     push_date               =scrapy.Field()
     index_name              =scrapy.Field()
     open_value              =scrapy.Field()
@@ -86,3 +86,18 @@ class indexCollectorItem(ZeroItem):
         res['push_date']=datetime_to_str(data['push_date'])
         res['index_name']=data['index_name']
         return res
+
+class IndexStatisticItem(ZeroItem):
+    push_date=scrapy.Field()
+    index_name=scrapy.Field()
+    spe=scrapy.Field()
+    dpe=scrapy.Field()
+    pb =scrapy.Field()
+    dp =scrapy.Field()
+    lyspe=scrapy.Field()
+    lydpe=scrapy.Field()
+    lypb=scrapy.Field()
+
+    def convert(self):
+        data=dict(self)
+        return data

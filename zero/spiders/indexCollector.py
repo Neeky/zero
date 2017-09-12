@@ -2,7 +2,7 @@
 import scrapy
 import json
 import datetime
-from zero.items import indexCollectorItem
+from zero.items import IndexCollectorItem
 
 #定义键值的映射关系
 kvmaping={
@@ -19,7 +19,7 @@ kvmaping={
 
 
 class IndexcollectorSpider(scrapy.Spider):
-    name = 'indexCollector'
+    name = 'IndexCollector'
     allowed_domains = ['d.10jqka.com.cn']
     start_urls = ['http://d.10jqka.com.cn/v2/realhead/zs_399006/last.js',#创业板指
                   'http://d.10jqka.com.cn/v2/realhead/zs_1B0016/last.js',#上证50
@@ -44,7 +44,7 @@ class IndexcollectorSpider(scrapy.Spider):
         data=json.loads(text)
         item=data['items']
         #包装item
-        index_item=indexCollectorItem()
+        index_item=IndexCollectorItem()
         for k in kvmaping:
             index_item[k]=item[kvmaping[k]]
         push_date=datetime.datetime.now()

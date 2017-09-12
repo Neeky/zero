@@ -14,7 +14,11 @@ class Poster(object):
 
     def post(self):
         response=requests.post(self.http_api,data=self._item.convert())
+        print('-'*64)
+        print(self._item.convert())
         print(response.text)
+        print('-'*64)
+
 
 
 class ShiborItemPoster(Poster):
@@ -25,7 +29,7 @@ class InvestorSituationItemPoster(Poster):
     #server_url="http://127.0.0.1:8000/component/"
     api="market/add/investorsituation/"
 
-class indexCollectorItemPoster(Poster):
+class IndexCollectorItemPoster(Poster):
     api="market/add/update/stockindex/"
 
     def post(self):
@@ -43,4 +47,5 @@ class indexCollectorItemPoster(Poster):
             print(data)
             print('-'*64)
             
-    
+class IndexStatisticItemPoster(Poster):
+    api="market/add/update/stockindex/"
