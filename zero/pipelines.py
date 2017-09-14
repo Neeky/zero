@@ -13,6 +13,7 @@ post_router={
     items.InvestorSituationItem:poster.InvestorSituationItemPoster,
     items.IndexCollectorItem:poster.IndexCollectorItemPoster,
     items.IndexStatisticItem:poster.IndexStatisticItemPoster,
+    items.FoundationBriefItem:poster.FoundationBriefItemPoster
 }
 
 

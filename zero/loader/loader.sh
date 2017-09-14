@@ -16,3 +16,8 @@ python3 index_loader.py --source=/Users/jianglexing/Downloads/sz_hq_399006_2010_
 python3 index_loader.py --source=/Users/jianglexing/Downloads/sh_hq_000015_2005_2017
 #深证成指
 python3 index_loader.py --source=/Users/jianglexing/Downloads/sz_hq_399001_2004_2017
+#上证180
+python3 index_loader.py --source=/Users/jianglexing/Downloads/sh_hq_000010_2004_2017
+#上证380
+python3 index_loader.py --source=/Users/jianglexing/Downloads/sh_hq_000009_2010_2017
+

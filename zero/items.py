@@ -17,7 +17,8 @@ class ZeroItem(scrapy.Item):
         """
         完成对数据项的清理，数据类型转换，并返回字典
         """
-        raise NotImplemented()
+        data=dict(self)
+        return data
 
 class ShiborItem(ZeroItem):
     push_date  =scrapy.Field()
@@ -101,3 +102,13 @@ class IndexStatisticItem(ZeroItem):
     def convert(self):
         data=dict(self)
         return data
+
+
+class FoundationBriefItem(ZeroItem):
+    found_code           =scrapy.Field()
+    found_name           =scrapy.Field()
+    found_manager_user   =scrapy.Field()
+    found_manager_company=scrapy.Field()
+    found_type           =scrapy.Field()
+    found_birth          =scrapy.Field()
+    found_exchange       =scrapy.Field()
