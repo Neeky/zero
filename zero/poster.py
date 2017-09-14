@@ -51,5 +51,5 @@ class IndexStatisticItemPoster(Poster):
     api="market/add/update/stockindex/"
 
 class FoundationBriefItemPoster(Poster):
-    server_url="http://127.0.0.1:8000/component/"
+    #server_url="http://127.0.0.1:8000/component/"
     api="market/add/update/foundationbrief/"
