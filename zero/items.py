@@ -112,3 +112,9 @@ class FoundationBriefItem(ZeroItem):
     found_type           =scrapy.Field()
     found_birth          =scrapy.Field()
     found_exchange       =scrapy.Field()
+
+    def convert(self):
+        data=dict(self)
+        if data['found_birth']=='':
+            data['found_birth']='1000-01-01'
+        return data
