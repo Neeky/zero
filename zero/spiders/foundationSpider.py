@@ -50,7 +50,7 @@ class FoundationspiderSpider(scrapy.Spider):
             foundation_page_url=response.xpath(foundation_xpath.format(index)).extract_first()
             foundation_code    =foundation_page_url.split('?')[2]
             yield scrapy.http.Request(url=doundation_brief_url.format(foundation_code),callback=self.parse_foundation_brief)
-            break
+
         #上交所上市基金信息
         shang_market_foundation_list=response.xpath("//*[@id='con-a-2']/ul/li")
         foundation_xpath="//*[@id='con-a-2']/ul/li[{0}]/a/@href"
@@ -59,7 +59,7 @@ class FoundationspiderSpider(scrapy.Spider):
             foundation_page_url=response.xpath(foundation_xpath.format(index)).extract_first()
             foundation_code    =foundation_page_url.split('?')[2]
             yield scrapy.http.Request(url=doundation_brief_url.format(foundation_code),callback=self.parse_foundation_brief)
-            break
+
         #其它
         other_market_foundation_list=response.xpath("//*[@id='con-a-3']/ul/li")
         foundation_xpath="//*[@id='con-a-3']/ul/li[{0}]/a/@href"
@@ -68,7 +68,7 @@ class FoundationspiderSpider(scrapy.Spider):
             foundation_page_url=response.xpath(foundation_xpath.format(index)).extract_first()
             foundation_code    =foundation_page_url.split('?')[2]
             yield scrapy.http.Request(url=doundation_brief_url.format(foundation_code),callback=self.parse_foundation_brief)
-            break
+
 
 
     def parse(self, response):
